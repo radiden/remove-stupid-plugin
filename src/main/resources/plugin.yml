@@ -1,0 +1,8 @@
+name: removestupid
+version: '${version}'
+main: femboygaming.removestupid.RemoveStupid
+api-version: 1.18
+prefix: TAIGACUTE
+authors: [ rai ]
+description: i hate stripped logs
+website: https://gelbooru.com
