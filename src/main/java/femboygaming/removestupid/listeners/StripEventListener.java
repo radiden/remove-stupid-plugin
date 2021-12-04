@@ -7,6 +7,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
@@ -30,10 +31,12 @@ public class StripEventListener implements Listener {
             if (blockType == Material.DIRT_PATH && block.isPreferredTool(heldItem)) {
                 block.setType(Material.DIRT);
                 player.playSound(block.getLocation(), Sound.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                player.playEffect(block.getLocation(), Effect.COPPER_WAX_OFF, null);
             }
             else if (Tag.LOGS.isTagged(blockType) && block.getBlockData().getAsString().startsWith("minecraft:stripped") && block.isPreferredTool(heldItem)) {
                 block.setType(Material.getMaterial(block.getType().name().replace("STRIPPED_", "")));
                 player.playSound(block.getLocation(), Sound.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                player.playEffect(block.getLocation(), Effect.COPPER_WAX_OFF, null);
             }
         }
     }
